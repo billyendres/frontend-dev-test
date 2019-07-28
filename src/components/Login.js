@@ -7,11 +7,14 @@ axios
 		password: "meld123"
 	})
 	.then(res => {
-		console.log(res);
+		localStorage.setItem("Token", res.data);
 		console.log(res.data);
 	});
 
 class Login extends Component {
+	state = {
+		// jwbd: token
+	};
 	handleChange = e => {
 		this.setState({
 			[e.target.name]: e.target.value
