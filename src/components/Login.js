@@ -8,13 +8,9 @@ axios
 	})
 	.then(res => {
 		localStorage.setItem("Token", res.data);
-		console.log(res.data);
 	});
 
 class Login extends Component {
-	state = {
-		// jwbd: token
-	};
 	handleChange = e => {
 		this.setState({
 			[e.target.name]: e.target.value
@@ -54,5 +50,3 @@ class Login extends Component {
 }
 
 export default Login;
-
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub3ciOjE1NjQyODI4MDg4NDEsInNlbmRlciI6ImVuZHJlczYzQGhvdG1haWwuY29tIiwiaWF0IjoxNTY0MjgyODA4fQ.AtMm2IrU7wjbo8q53hrvmaSE80vTDFlTFwhHWepJx4c
