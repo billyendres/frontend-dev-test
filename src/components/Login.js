@@ -11,6 +11,7 @@ axios
 	});
 
 class Login extends Component {
+	state = { password: "" };
 	handleChange = e => {
 		this.setState({
 			[e.target.name]: e.target.value
@@ -19,6 +20,10 @@ class Login extends Component {
 
 	handleSubmit = event => {
 		event.preventDefault();
+		if (this.state.password === "meld123") this.props.history.replace("/devices");
+		else {
+			alert("Password Incorrect -- try 'meld123' ;)");
+		}
 	};
 
 	render() {
