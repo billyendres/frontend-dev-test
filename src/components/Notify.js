@@ -1,26 +1,53 @@
-// import React, { Component } from "react";
-// import axios from "axios";
+import React, { Component } from "react";
+import Container from "react-bootstrap/Container";
+import axios from "axios";
 
-// const token = localStorage.getItem("Token");
-// axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+// Retrieves Token From Local Storage
+const token = localStorage.getItem("Token");
+// Sets Auth Bearer as Header
+axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
-// axios.post("http://35.201.2.209/notify", {
-// 	name: "Billy Endres",
-// 	email: "endres63@hotmail.com",
-// 	repoUrl: "https://github.com/billyendres/frontend-dev-test",
-// 	message: "How does a computer get drunk? It takes screenshots"
-// });
+// Axios Post Request
+axios.post("http://35.201.2.209/notify", {
+	name: "Billy Endres",
+	email: "endres63@hotmail.com",
+	repoUrl: "https://github.com/billyendres/frontend-dev-test",
+	message: "How does a computer get drunk? It takes screenshots"
+});
 
-// console.log(token);
+console.log(token);
 
-// class Notify extends Component {
-// 	render() {
-// 		return (
-// 			<div style={{ width: "100%", display: "flex", flexWrap: "wrap" }}>
-// 				Token: {token}
-// 			</div>
-// 		);
-// 	}
-// }
+class Notify extends Component {
+	render() {
+		return (
+			<Container>
+				<div
+					style={{
+						textAlign: "center",
+						fontSize: "3em"
+					}}
+				>
+					Token: {token}
+				</div>
+				<div
+					style={{
+						textAlign: "center",
+						fontSize: "3em"
+					}}
+				>
+					<div>
+						Name: Billy Endres
+						<br />
+						Email: endres63@hotmail.com
+						<br />
+						RepoURL: https://github.com/billyendres/frontend-dev-test
+						<br />
+						Message: How does a computer get drunk? It takes screenshots
+					</div>
+				</div>
+			</Container>
+		);
+	}
+}
 
-// export default Notify;
+export default Notify;

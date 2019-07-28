@@ -5,6 +5,7 @@ import Devices from "./Devices";
 import Login from "./Login";
 import Notify from "./Notify";
 
+//Usering Browser Router To Navigate Paths
 class App extends Component {
 	render() {
 		return (
@@ -13,7 +14,7 @@ class App extends Component {
 					<Route exact path="/" component={Home} />
 					<Route exact path="/devices" component={Devices} />
 					<Route exact path="/login" component={Login} />
-					{/* <Route exact path="/notify" component={Notify} /> */}
+					<Route exact path="/notify" component={Notify} />
 				</Switch>
 			</Router>
 		);

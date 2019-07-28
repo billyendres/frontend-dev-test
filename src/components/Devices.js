@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Button from "react-bootstrap/Button";
+import Zoom from "react-reveal/Zoom";
 
 class Devices extends Component {
 	state = {
@@ -18,7 +20,7 @@ class Devices extends Component {
 		console.log(this.state.number);
 	}
 
-	//Forces Component Rerender Every 5 Seconds
+	// Forces Component Rerender Every 5 Seconds
 	componentWillUpdate() {
 		setInterval(() => {
 			this.forceUpdate(this.componentDidMount);
@@ -36,33 +38,50 @@ class Devices extends Component {
 
 	render() {
 		return (
-			<div>
-				<div style={{ textAlign: "center" }}>
-					<p>DEVICES ONLINE</p>
-					<div>{this.state.device}</div>
-					<div
-						style={{
-							display: "flex",
-							flexWrap: "wrap",
-							justifyContent: "center"
-						}}
-					>
-						{this.state.number.map(num => (
-							<div
-								style={{
-									width: "1em",
-									background: "black",
-									border: "30px solid black",
-									borderRadius: "50%",
-									margin: "2em"
-								}}
-							>
-								{num}
-							</div>
-						))}
+			<div style={{ height: "100vh", width: "100%", background: "cyan" }}>
+				<div style={{ textAlign: "center", paddingTop: "5em" }}>
+					<div style={{ fontSize: "4em" }}>{this.state.device}</div>
+					<p style={{ fontSize: "2em" }}>DEVICES ONLINE</p>
+					<Zoom>
+						<div
+							style={{
+								display: "flex",
+								flexWrap: "wrap",
+								justifyContent: "center",
+								marginLeft: "3em",
+								marginRight: "3em",
+								marginTop: "2em"
+							}}
+						>
+							{this.state.number.map(num => (
+								<div
+									style={{
+										width: "1em",
+										height: "1em",
+										color: "black",
+										background: "black",
+										border: "40px solid black",
+										borderRadius: "50%",
+										margin: "1.5em"
+									}}
+								>
+									{num}
+								</div>
+							))}
+						</div>
+					</Zoom>
+					<div style={{ marginTop: "5%" }}>
+						<Button
+							variant="dark"
+							style={{ marginRight: "2em" }}
+							onClick={this.handleSubmitNotify}
+						>
+							Notify
+						</Button>
+						<Button variant="warning" onClick={this.handleSubmitLogout}>
+							Logout
+						</Button>
 					</div>
-					<button onClick={this.handleSubmitLogout}>Logout</button>
-					<button onClick={this.handleSubmitNotify}>Notify</button>
 				</div>
 			</div>
 		);
