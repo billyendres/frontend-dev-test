@@ -32,6 +32,5 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
-	},
-	"proxy": "http://35.201.2.209"
+	}
 }
